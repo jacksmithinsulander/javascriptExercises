@@ -1,10 +1,8 @@
 const entryForm = document.querySelector("#entryForm");
-const entryResultsSection = document.querySelector("#entryResultsSection");
 const entryResultRow = document.querySelector("#entryResultRow");
 const getEntryTitle = document.getElementById("getEntryTitle");
 const getEntryText = document.getElementById("getEntryText");
 let formDate = document.getElementById("date");
-
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, "0");
