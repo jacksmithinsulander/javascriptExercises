@@ -1,0 +1,39 @@
+let form = document.getElementById("diaryForm");
+let formDate = document.getElementById("date");
+let previousDiarys = document.getElementById("date");
+let printDiarys = document.getElementById("printDiarys");
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+today = yyyy + '-'+ mm + '-' + dd  ;
+console.log(today);
+
+formDate.value = today;
+
+let storageString = localStorage.getItem("test");
+
+let storageObjects = JSON.parse(storageString);
+
+var diaryArray = [storageObjects]
+
+function printAllDiarys() {
+	for (let i = 1; i < diaryArray; i++) {
+		printDiarys.insertAdjacentHTML("afterbegin", "<div>" + diaryArray[i].date  + "</div>" + "<br>" +"<div>" + diaryArray[i].title  + "</div>" + "<br>" +"<div>" + diaryArray[i].diary  + "</div>" );
+	}
+	
+}
+form.addEventListener('submit', callbackFunction);
+function callbackFunction(event) {
+	event.preventDefault();
+	const myFormData = new FormData(event.target);
+	const formDataObj = Object.fromEntries(myFormData.entries());
+	console.log(formDataObj);
+	diaryArray.push(formDataObj);
+	localStorage.setItem("test", JSON.stringify(diaryArray));
+	printAllDiarys();
+};
+
+
+printAllDiarys();

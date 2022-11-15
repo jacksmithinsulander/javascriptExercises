@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diary</title>
+</head>
+<body>
+	<h1 class="title">Diary</h1>
+	<form id="entryForm" action="">
+		<label for="entry-title">Entry Title</label>
+		<input type="text" name="entry-title" id="getEntryTitle"></input><br>
+		<label for="date">Todays Date</label>
+		<input id="date" name="date" type="date" />
+		<label for="entry" class="journal-label">Today's Entry</label><br>
+		<textarea name="daily-entry" id="getEntryText"></textarea><br>
+		<button type="submit">Submit</button>
+	</form>
+	<section id="entryResultsSection">
+			<div id="entryResultRow"></div>
+	</section>
+	<script src="script.js"></script>
+</body>
+</html>
